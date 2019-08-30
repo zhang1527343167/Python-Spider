@@ -1,5 +1,3 @@
-var string = 'mJa6jM+RPOCnbSDb95vTTfQvucwfQ2S7ENhGH1rGtmg='
-var key = '51721885343167554415'
 function safeAdd(x, y) {
     var lsw = (x & 0xFFFF) + (y & 0xFFFF);
     var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
@@ -200,24 +198,15 @@ function xredirect(name, value, url) {
     var date = new Date();
     date.setTime(date.getTime() + 2592000000);
     var expires = "; expires=" + date.toUTCString();
-    document.cookie = name + "=" + value + expires + "; path=/";
-    if (document.cookie.indexOf(name) === -1 && navigator.cookieEnabled) {
-        alert('请修改浏览器设置,允许cookie缓存')
-    } else {
-        if (url == '') {
-            var url = location.href;
-            if (location.protocol != 'https:') {
-                url = 'https:' + window.location.href.substring(window.location.protocol.length)
-            }
-        } else {
-            if (location.protocol != 'https:') {
-                url = 'https:' + url
-            }
-        }
-        var ulen = url.indexOf('#');
-        if (ulen !== -1) {
-            url = url.substring(0, ulen)
-        }
-        location.replace(url)
-    }
+    return cookie = name + "=" + value + expires + "; path=/";
 }
+
+
+var name = 'antipas';
+var url = '';
+xredirect(name, value, url, 'https://');
+
+var value = function getKey(string, key) {
+    antipas = anti(string, key);
+    return antipas
+};
