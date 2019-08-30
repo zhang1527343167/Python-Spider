@@ -3,14 +3,14 @@ import re
 import requests
 from lxml import etree
 
-from GM.DZDP.font import ParseFontClass
+from GM.大众点评.font import ParseFontClass
 
 
 def spider(data_content):
     """
     解析函数
     :param data_content:  商铺链接信息
-    :return: item 店铺详情
+    :return: item 店铺地址电话
     """
     font_list = []
     num_list = []
@@ -28,17 +28,17 @@ def spider(data_content):
         res.text)).replace('<e class="address">', '+').replace('<d class="num">', '+').replace('</e>', '+').replace(
         '</d>', '+').replace('</span>', '')
     address_list = [x for x in address.split('+') if x != '']
-    for ttf in address_list:
+    for _ in address_list:
         # 如果包含 & 就是字体
-        if '&' in ttf:
+        if '&' in _:
             # 如果为False 就是数字
-            if pf.parse_ttf(ttf):
-                font_list.append(pf.parse_ttf(ttf))
+            if pf.parse_ttf(_):
+                font_list.append(pf.parse_ttf(_))
             else:
-                font_list.append(pf.parse_num(ttf))
+                font_list.append(pf.parse_num(_))
 
         else:
-            font_list.append(ttf)
+            font_list.append(_)
     item['地址'] = ''.join(font_list).strip()
 
     phone = ''.join(

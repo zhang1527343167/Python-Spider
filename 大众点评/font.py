@@ -6,7 +6,7 @@ import redis
 import requests
 from fontTools.ttLib import TTFont
 
-from GM.DZDP.setting import *
+from GM.大众点评.setting import *
 
 
 class ParseFontClass:
@@ -27,7 +27,8 @@ class ParseFontClass:
     def parse_num(self, code):
         """数字对应库"""
         clean_code = code.replace(';', '')[-4:]  # 只提取匹配区域
-        result_list = self.r.hmget(HASH_NUM, self.num)  # 取出对应字库表（已修复bug）
+        result_list = self.r.hmget(HASH_NUM, self.num)  # 取出对应字库表
+
         for result in result_list:
             json_data = json.loads(result)
             if 'uni' + clean_code in json_data:
@@ -37,7 +38,7 @@ class ParseFontClass:
     def parse_ttf(self, code):
         """字体对应库"""
         clean_code = code.replace(';', '')[-4:]  # 只提取匹配区域
-        result_list = self.r.hmget(HASH_TABLE, self.ttf)  # 取出对应字库表（已修复bug）
+        result_list = self.r.hmget(HASH_TABLE, self.ttf)  # 取出对应字库表
         for result in result_list:
             json_data = json.loads(result)
             if 'uni' + clean_code in json_data:

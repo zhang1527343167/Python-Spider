@@ -30,9 +30,9 @@ FONT_LIST = ['', '', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '店', '�
              '串', '回', '晚', '微', '周', '值', '费', '性', '桌', '拍', '跟', '块', '调', '糕']
 
 # 汉字 库名
-HASH_TABLE = 'dianping:FONT8'
+HASH_TABLE = 'dianping:FONT'
 # 数字 库名
-HASH_NUM = 'dianping:NUM8'
+HASH_NUM = 'dianping:NUM'
 
 # redis 配置
 REDIS_HOST = {

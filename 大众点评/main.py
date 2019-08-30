@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # __author__ = "zgm"  1527343167@qq.com
 # Date: 2019-08-30
-from GM.DZDP.spider import spider
+from GM.大众点评.spider import spider
 
 
 def main():
