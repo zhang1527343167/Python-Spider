@@ -57,7 +57,7 @@ class taobao_infos(object):
 
 
 if __name__ == "__main__":
-    weibo_username = "17630378780"  # 微博账号
-    weibo_password = "z1527343167"  # 微博密码
+    weibo_username = "*********"  # 微博账号
+    weibo_password = "*********"  # 微博密码
     #  启动
     taobao_infos().run()
